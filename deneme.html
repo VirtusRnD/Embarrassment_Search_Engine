@@ -5,28 +5,59 @@
     <meta charset="UTF-8">
     <title>Shame Search</title>
     <style>
+        span {
+            font-size: 15px
+        }
+
+
+        h3 {
+            font-size: 20px
+        }
+
+
+        .queryResult {
+            background-color: #c5d7f6;
+            max-height: 95px;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            border: 2px darkslateblue solid;
+            border-radius: 20px;
+            overflow-y: hidden
+        }
+
+
+        .queryResultTitle {
+            margin: 10px 0px
+        }
+
+
         select{
             outline:none;
         }
+
 
         a:link {
             text-decoration: none;
             color:#009EE3;
         }
 
+
         a:visited {
             text-decoration: none;
             color:rgb(150,50,150);
         }
 
+
         a:hover {
             text-decoration: underline;
         }
+
 
         a:active {
             text-decoration: underline;
             color:red;
         }
+
 
         body{
             font-size:12px;
@@ -36,6 +67,7 @@
             color:#555656;
             background-color:white;
         }
+
 
         h1{
             color:#009EE3;
@@ -48,6 +80,8 @@
             max-width:85%;
             overflow: hidden;
         }
+
+
         b{
             color:black;
             font-size:14px;
@@ -61,6 +95,8 @@
             overflow: hidden;
             max-width:60%;
         }
+
+
         p{
             font-size:14px;
             line-height:19px;
@@ -68,6 +104,7 @@
             margin-top:5px;
             word-wrap: break-word;
         }
+
 
         div.image_small{
             width:160px;
@@ -84,75 +121,6 @@
             transition-duration:1s;
 
         }
-
-        button.cross{
-            position:absolute;
-            width:10%;
-            right:8%;
-            margin-top:4px;
-            padding-top:10px;
-            padding-bottom:10px;
-            background:transparent;
-            border:0px;
-            border-style:solid;
-            outline:0px;
-            z-index:1;
-            opacity:0.5;
-            font-size:16px;
-        }
-
-        button.cross_ini{
-            position:absolute;
-            width:10%;
-            right:8%;
-            margin-top:4px;
-            padding-top:10px;
-            padding-bottom:10px;
-            background:transparent;
-            border:0px;
-            border-style:solid;
-            outline:0px;
-            z-index:1;
-            opacity:0.5;
-            font-size:16px;
-            display:none;
-        }
-
-
-        button.mic{
-            position:absolute;
-            width:10%;
-            right:1%;
-            margin-top:4px;
-            padding-top:10px;
-            padding-bottom:10px;
-            background:transparent;
-            border:0px;
-            border-style:solid;
-            outline:0px;
-            z-index:1;
-            opacity:0.5;
-            font-size:16px;
-        }
-
-        button.search{
-            position:absolute;
-            width:10%;
-            left: 0px;
-            margin-top:0px;
-            padding-top:10px;
-            padding-bottom:10px;
-            background:transparent;
-            border:0px;
-            border-style:solid;
-            outline:0px;
-            z-index:1;
-            opacity:0.5;
-            font-size:16px;
-            cursor:pointer;
-        }
-
-
 
 
         input[type=text]{
@@ -172,9 +140,6 @@
         }
 
 
-
-
-
         input[type=submit]{
             display:block;margin:auto;
             width:27%;
@@ -183,45 +148,19 @@
             color:white;
             border:0px;
             font-size:16px;
-            padding-top:10px;
-            padding-bottom:10px;
-            padding-left:0px;
-            padding-right:0px;
+            padding: 10px 0px;
             outline:0px;
             transition-property:width,background-color,color;
             transition-duration:0.25s;
             -webkit-appearance: none;
             cursor:pointer;
         }
+
+
         input[type=submit]:hover{
             outline:none;
             background-color:#F1F3F5;color:#555656;border:0px;
         }
-
-        button.more_results{
-            margin:auto;
-            width:27%;
-            border-radius: 40px;
-            background-color:#009EE3;
-            color:white;
-            border:0px;
-            font-size:16px;
-            padding-top:10px;
-            padding-bottom:10px;
-            padding-left:0px;
-            padding-right:0px;
-            margin-left:36.5%;
-            outline:0px;
-            transition-property:width,background-color,color;
-            transition-duration:0.25s;
-            -webkit-appearance: none;
-            cursor:pointer;
-        }
-        button.more_results:hover{
-            outline:none;
-            background-color:#F1F3F5;color:#555656;border:0px;
-        }
-
 
 
         div.form{
@@ -233,18 +172,7 @@
             transition-duration:0.5s;
             background:transparent;
             z-index:10;
-
-
-
-
         }
-
-
-
-
-
-
-
 
 
         div.autocomplete{
@@ -265,22 +193,9 @@
             z-index:10;
         }
 
-        div.autocomplete-items{
-            background-color:white;
-            padding-left:0px;
-            margin-left:0%;
-            margin-right:0%;
-            margin-bottom:18px;
-            margin-top:0px;
-            width:100%;
-            font-size:16px;
-            z-index:10;
-        }
+
         .autocomplete-items div {
-            padding: 0;
-            padding-left:50px;
-            padding-top:5px;
-            padding-bottom:5px;
+            padding: 5px 0 5px 50px;
             cursor: pointer;
             margin:0px;
             background-color: #fff;
@@ -288,130 +203,19 @@
             font-size:16px;
             z-index:10;
         }
+
+
         .autocomplete-items div:hover {
-            padding: 0;
-            padding-top:5px;
-            padding-bottom:5px;
-            padding-left:50px;
+            padding: 5px 0 5px 50px;
             cursor: pointer;
             background-color: #F1F3F5;
         }
-        .autocomplete-active {
-            background-color: #F1F3F5 !important;
-        }
 
-
-
-
-
-
-        div.bottom{
-            width:96%;position:fixed;bottom:0px;font-family:arial;color:#555656;
-            font-size:14px;background-color:#F1F3F5;padding:0px;
-            text-align:center;
-            padding-left:2%;
-            padding-right:2%;
-            z-index:1;
-
-        }
-        div.bottom2{
-            width:30%;position:fixed;bottom:0px;font-family:arial;color:#555656;background-color:#F1F3F5;
-            margin-left:35%;
-            margin-right:35%;
-            background:transparent;
-            z-index:1;
-        }
-        p.bottom-txt{
-            color:#555656;
-            padding:0px;
-            margin:0px;
-            font-size:12px;
-            line-height:12px;
-
-        }
-        p.bottom-txt2{
-            color:#555656;
-            padding:0px;
-            margin:0px;
-            font-size:12px;
-            line-height:12px;
-        }
-
-
-
-        div.bottom-center{
-            font-size:12px;
-        }
-
-
-        div.bottom-left{
-            color:#555656;
-            width:70px;
-            padding:10px;
-            padding-left:0px;
-            padding-right:0px;
-            float:left;
-            margin:0px;
-            font-size:12px;
-            line-height:12px;
-
-        }
-        div.bottom-left2{
-            color:#555656;
-            width:90px;
-            padding:10px;
-            padding-left:0px;
-            padding-right:0px;
-            float:left;
-            margin:0px;
-            font-size:12px;
-            line-height:12px;
-
-        }
-
-        div.bottom-right{
-            color:#555656;
-            width:70px;
-            padding:10px;
-            padding-right:0px;
-            padding-left:0px;
-            float:right;
-            margin:0px;
-            font-size:12px;
-            line-height:12px;
-
-        }
-        div.bottom-center{
-            color:#555656;
-            width:150px;
-            padding:10px;
-            padding-right:0px;
-            padding-left:0px;
-            margin:auto;
-            font-size:12px;
-            line-height:12px;
-        }
-        div.top{
-            height:165px;
-            transition-property:height;
-            transition-duration:1s;
-        }
-
-        div.top2{
-            height:32px;
-            transition-property:height;
-            transition-duration:1s;
-        }
-
-        div.below_image_smartphone{
-            height:0px;
-        }
 
         mark{
             color:inherit;
             background-color: rgb(255,255,210);
         }
-
 
 
         @media only screen and (max-width: 700px) {
@@ -716,24 +520,7 @@
             }
 
         }
-        span {
-            font-size: 15px
-        }
-        h3 {
-            font-size: 20px
-        }
-        .queryResult {
-            background-color: #c5d7f6;
-            max-height: 95px;
-            padding: 10px 20px;
-            margin-bottom: 20px;
-            border: 2px darkslateblue solid;
-            border-radius: 20px;
-            overflow-y: hidden
-        }
-        .queryResultTitle {
-            margin: 10px 0px
-        }
+
     </style>
 </head>
 <body>
