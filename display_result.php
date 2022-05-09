@@ -546,12 +546,7 @@ $output = shell_exec($command);
 
 <br><br><br><br><br>
 
-<div style="float: right; margin-right: 20px">
-    <h5>Querying took x seconds</h5>
-</div>
-
-<div style="float: right; margin-right: -120px; margin-top: 20px">
-    <h5>There are y results</h5>
+<div id="query_timer_n_counter" style="float: right; margin-right: 20px">
 </div>
 
 <br>

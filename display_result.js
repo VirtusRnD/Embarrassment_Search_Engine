@@ -56,5 +56,17 @@ export function loadData(){
         queryResultDiv.appendChild(textSpan);
         resultDiv.appendChild(queryResultDiv);
     }
-}
+    let h_five_timer = document.createElement("h5");
+    let time = 15;
+    let timer = document.createTextNode("Querying took "+ time +" seconds.");
+    h_five_timer.appendChild(timer);
+    document.getElementById("query_timer_n_counter").appendChild(h_five_timer);
 
+    let h_five_counter = document.createElement("h5");
+    let count = result_list.length;
+    let counter = document.createTextNode("There are "+ count +" results.");
+    h_five_counter.appendChild(counter);
+    document.getElementById("query_timer_n_counter").appendChild(h_five_counter);
+
+
+}
