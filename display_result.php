@@ -1,4 +1,9 @@
+<?php
 
+$command = escapeshellcmd('python3 crawler.py');
+$output = shell_exec($command);
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -523,10 +528,14 @@
 
     </style>
     <script type="text/javascript" src="search_result.json"></script>
-    <script src="deneme.js"></script>
-
+    <script type="module" src="display_result.js"></script>
 </head>
-<body onload="loadData();">
+<body>
+<script type="module">
+    import { loadData } from "./display_result.js";
+    loadData();
+</script>
+
 
 <div class="image_small" style="margin-top: 10px"><a href="embarrassmentSearch.php"><img src="images/embarrassmentSearch.png" alt="logo"></a></div>
 
@@ -559,18 +568,6 @@
 
 <br><br><br><br><br>
 
-<div id="results" style="width: 70%;margin-left: 15%">
-
-    <div class="queryResult">
-        <a  href="https://www.timecalculator.net">
-            <cite role="text" >https://www.timecalculator.net<span role="text"> › ...</span></cite>
-            <h3 class="queryResultTitle">Time Calculator</h3>
-        </a>
-        <span> There are 1000 milliseconds in a second. One second is equal to 1 × 10<sup>0</sup> to unit of time second. Therefore 1 second = 1 seconds. One millisecond is&nbsp;...</span>
-    </div>
-
-
-
-</div>
+<div id="results" style="width: 70%;margin-left: 15%"></div>
 </body>
 </html>

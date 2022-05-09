@@ -449,7 +449,8 @@ def export_search_result(search_results, last_results):
                     a += 1
                 except:
                     pass
-    json.dump(last_output, file, ensure_ascii=False)
+    last_arr = [last_output]
+    json.dump(last_arr, file, ensure_ascii=False)
 
 
 def mainFunction(name, shame, swearen, sweartr):

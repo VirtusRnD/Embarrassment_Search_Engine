@@ -1,3 +1,6 @@
+import data from "./search_result.json" assert { type: "json" };
+
+
 var result_list = [];
 class SearchResult{
     constructor(link,title,text) {
@@ -7,35 +10,24 @@ class SearchResult{
     }
 }
 
-function readTextFile(file, callback) {
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, true);
-    rawFile.onreadystatechange = function() {
-        if (rawFile.readyState === 4 && rawFile.status == "200") {
-            callback(rawFile.responseText);
-        }
-    }
-    rawFile.send(null);
-}
 
+export function loadData(){
 
+    let i = 0;
 
-
-
-async function loadData(){
-    readTextFile("/search_result.json", function(text){
-        let data = JSON.parse(text);
-        alert(data)
-        let length=Object.keys(data).length;
-        for (let i = 0; i <length; i++) {
-            alert(i)
-            let tempResult = new SearchResult(data[i]['link'],data[i]['title'],data[i]['text']);
+    while (true){
+        try {
+            let tempResult = new SearchResult(data[0][i]['link'],data[0][i]['title'],data[0][i]['text']);
             result_list.push(tempResult);
         }
-    });
+        catch(err) {
+            break
+        }
+        i++;
+    }
 
     var resultDiv = document.getElementById("results");
-    alert("afterres")
+
     for (let i = 0; i < result_list.length; i++) {
         let queryResultDiv = document.createElement("div");
         let linkA = document.createElement("a");
@@ -57,17 +49,12 @@ async function loadData(){
         textSpan.appendChild(descriptionText);
         let titleText = document.createTextNode(result_list[i]['title']);
         title.appendChild(titleText);
-        alert(title);
         linkCite.appendChild(linkSpan);
         linkA.appendChild(linkCite);
         linkA.appendChild(title);
         queryResultDiv.appendChild(linkA);
         queryResultDiv.appendChild(textSpan);
         resultDiv.appendChild(queryResultDiv);
-
-
     }
-
-
 }
 
