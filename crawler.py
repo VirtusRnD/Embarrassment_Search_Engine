@@ -6,11 +6,26 @@ from requests_html import HTMLSession
 import random
 from datetime import datetime
 import json
+import sys
 
-name = "Gürhan GÜNDÜZ"
+
+n = len(sys.argv)
+name = ""
+if n > 2:
+    for i in range(1,n):
+        name = name + " " + sys.argv[i]
+else:
+    name = sys.argv[1]
+
+
+name = name.strip()
+
+
+
+
 
 shame = ["drug", "inappropriate", "sex tape", "humiliation", "ashamed", "indignity", "scandal", "penalty",
-         "leaked image"]
+         "leaked image","instagram","twitter",""]
 
 swearen = ["4r5e", "5h1t", "5hit", "a55", "anal", "anus", "ar5e", "arrse", "arse", "ass", "ass-fucker", "asses",
            "assfucker",
@@ -369,6 +384,7 @@ def censor(swearen, sweartr, search_result):
                     templist[i] = str("*" * len(templist[i]))
             search_result_to_censor['title'] = " ".join(templist)
             allresult.append(search_result_to_censor['title'])
+
     return allresult
 
 

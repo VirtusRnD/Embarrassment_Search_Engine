@@ -1,9 +1,14 @@
 <?php
+$query_keyword = "";
+if($_POST['search']){
+    $query_keyword = $_POST['keyword'];
+}
 
-$command = escapeshellcmd('python3 crawler.py');
+$command = escapeshellcmd('python3 crawler.py '.$query_keyword);
 $output = shell_exec($command);
 
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -558,13 +563,6 @@ $output = shell_exec($command);
 
 <br>
 
-<div class="form">
-    <form autocomplete="off" id="search_form" method="post" action="display_result.php">
-        <div class="autocomplete">
-            <input id="keyword2" type="text" name="keyword" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false">
-        </div>
-    </form>
-</div>
 
 <br><br><br><br><br>
 

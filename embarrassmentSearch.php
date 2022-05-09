@@ -15,20 +15,6 @@
 
     <link rel="icon" type="image/ico" href="images/embarrassmentSearch.png">
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function(){
-            var element = document.createElement("script");
-            element.src = "autosuggest.php";
-            document.body.appendChild(element);
-        });
-    </script>
-
-    <script>
-        document.addEventListener("keydown", (e) => {
-            document.getElementById('cross_ini').style.display = 'block'
-        });
-    </script>
-
     <style>
 
         .image_container{
@@ -561,7 +547,7 @@
 </head>
 
 
-<form method="post" action="display_result.php">
+<form method="POST" action="display_result.php">
 
     <div class="top">
     </div>
@@ -572,9 +558,9 @@
 
     <div class="form">
         <div class="autocomplete">
-            <label for="keyword2"></label><input id="keyword2" type="text" name="keyword" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" autofocus="">
+            <label for="keyword"></label><input id="keyword" type="text" name="keyword" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" autofocus="">
         </div>
-        <div style="height:30px;display:block;"></div><input type="submit" value="Search" onclick="displayData();">
+        <div style="height:30px;display:block;"></div><input type="submit" value="Search" name = "search">
     </div>
 </form>
 
