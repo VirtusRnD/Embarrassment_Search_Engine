@@ -574,7 +574,7 @@
         <div class="autocomplete">
             <label for="keyword2"></label><input id="keyword2" type="text" name="keyword" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" autofocus="">
         </div>
-        <div style="height:30px;display:block;"></div><input type="submit" value="Search">
+        <div style="height:30px;display:block;"></div><input type="submit" value="Search" onclick="displayData();">
     </div>
 </form>
 
