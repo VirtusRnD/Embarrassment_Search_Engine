@@ -5,6 +5,8 @@ import random
 from datetime import datetime
 import json
 import sys
+import scrape
+
 
 n = len(sys.argv)
 name = ""
@@ -14,11 +16,7 @@ if n > 2:
 else:
     name = sys.argv[1]
 
-
 name = name.strip()
-
-
-
 
 
 shame = ["drug", "inappropriate", "sex tape", "humiliation", "ashamed", "indignity", "scandal", "penalty",
@@ -474,19 +472,20 @@ def export_search_result(search_results, last_results):
 
 
 def mainFunction(name , shame, swearen, sweartr):
-    file = open("social_media.json", "w", encoding="utf-8")
+    scrape.main(name)
+    # file = open("social_media.json", "w", encoding="utf-8")
     search_results = searcher(name, shame)
     result = list(set(censor(swearen, sweartr, search_results)))
     mixed_results = shuffler(result=result)
     last_results = indexer(name, mixed_results)
     export_search_result(search_results, last_results)
-    insta = exportinstagram(name, file)
-    twitter = exporttwitter(name, file)
-    output_social_media = {
-        "instagram": insta,
-        "twitter": twitter
-    }
-    json.dump(output_social_media, file, ensure_ascii=False)
+    # insta = exportinstagram(name, file)
+    # twitter = exporttwitter(name, file)
+    # output_social_media = {
+    #     "instagram": insta,
+    #     "twitter": twitter
+    # }
+    # json.dump(output_social_media, file, ensure_ascii=False)
 
 
 start = datetime.now().time()  # time object

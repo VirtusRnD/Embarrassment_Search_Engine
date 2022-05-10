@@ -6,8 +6,8 @@ if($_POST['search']){
     $query_keyword = $_POST['keyword'];
 }
 
-$command = escapeshellcmd('python3 crawler.py '.$query_keyword);
-$output = shell_exec($command);
+#$command = escapeshellcmd('python3 crawler.py '.$query_keyword);
+$output = 1;
 
 ?>
 
@@ -16,6 +16,16 @@ $output = shell_exec($command);
 <head>
     <meta charset="UTF-8">
     <title>Shame Search</title>
+    <meta name="description" content="Shame Search is a search engine that you can use to find embarrassing content about people. Remember the dangers of sharing personal information on Internet!">
+    <meta property="og:title" content="Shame Search | Embarrassment Search Engine">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.shamesearch.com/">
+    <meta property="og:image" content="https://www.shamesearch.com/embarrassmentSearch.png">
+    <meta property="og:description" content="Shame Search is a search engine that you can use to find embarrassing content about people. Remember the dangers of sharing personal information on Internet!">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0">
+
+    <link rel="icon" type="image/ico" href="images/embarrassmentSearch.png">
     <style>
         span {
             font-size: 15px
@@ -24,6 +34,11 @@ $output = shell_exec($command);
 
         h3 {
             font-size: 20px
+        }
+
+
+        .queryResultTitle {
+            margin: 10px 0px
         }
 
 
@@ -38,8 +53,33 @@ $output = shell_exec($command);
         }
 
 
-        .queryResultTitle {
-            margin: 10px 0px
+        .image_result {
+            width: 300px;
+            height: 95%;
+            margin: 5px 10px;
+            border-radius: 10px;
+            border: 2px black solid;
+            background-color: #5e5e5e;
+        }
+
+
+        .image_result_image{
+            height: 60%;
+            width: 300px;
+            border-radius: 10px;
+        }
+
+
+        .image_result_desc{
+            margin: 0px 10px;
+            overflow-y: hidden;
+            color: white;
+        }
+
+
+        #image_results{
+            background-color: #c5d7f6;
+            border: 2px darkslateblue solid;
         }
 
 
@@ -546,23 +586,35 @@ $output = shell_exec($command);
 
 <div class="image_small" style="margin-top: 10px"><a href="embarrassmentSearch.php"><img src="images/embarrassmentSearch.png" alt="logo"></a></div>
 
-<br><br><br><br><br>
+<br><br><br><br><br><br>
 
 <div id="query_timer_n_counter" style="float: right; margin-right: 20px">
+    <br><br><br>
+    <?php
+    echo '<h4> Querying took ' . $output . ' seconds. </h4>';
+    ?>
 </div>
 
-<br>
+
 
 <div style="width: 40%; margin: auto">
-    <h2 style="margin-left: 42%; margin-right: 42%"> Shame Bar </h2>
-    <progress value="3" max="100" style="width: 100%; height: 50px; accent-color: #414141"></progress>
+    <h3 style="margin-left: 42%; margin-right: 42%"> Shame Bar </h3>
+    <div>
+        <progress id="shame_bar" value="0" max="100" style="width: 100%; height: 50px; accent-color: #414141"></progress>
+        <h3 id="shame_bar_span" style="float: right; margin-top: 0px"></h3>
+    </div>
+
 </div>
 
 <br>
 
 
-<br><br><br><br><br>
+<br><br>
 
-<div id="results" style="width: 70%;margin-left: 15%"></div>
+<div id="image_results" style="height: 400px;width: 70%;margin-left: 15%;overflow-x: scroll; display: flex"></div>
+
+<br><br><br>
+
+<div id="query_results" style="width: 70%;margin-left: 15%"></div>
 </body>
 </html>
