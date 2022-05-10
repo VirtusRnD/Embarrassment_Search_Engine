@@ -1,5 +1,7 @@
 <?php
 $query_keyword = "";
+
+
 if($_POST['search']){
     $query_keyword = $_POST['keyword'];
 }

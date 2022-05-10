@@ -1,5 +1,3 @@
-import time
-
 import requests
 import urllib
 from requests_html import HTMLSession
@@ -7,7 +5,6 @@ import random
 from datetime import datetime
 import json
 import sys
-
 
 n = len(sys.argv)
 name = ""
@@ -261,6 +258,7 @@ def get_source(url):
     try:
         session = HTMLSession()
         response = session.get(url)
+
         return response
 
     except requests.exceptions.RequestException as e:
@@ -369,21 +367,27 @@ def searcher(name, shame):
     search_result = list()
     for a in shame:
         result = google_search(name + " " + a)
+        for i in result:
+            if len(i) == 0:
+                result.remove(i)
+                
         search_result.append(result)
     return search_result
 
 
 def censor(swearen, sweartr, search_result):
     allresult = list()
-
     for search_results_to_censor in search_result:
         for search_result_to_censor in search_results_to_censor:
-            templist = search_result_to_censor['title'].split(" ")
-            for i in range(len(templist)):
-                if templist[i].lower() in swearen or templist[i].lower() in sweartr:
-                    templist[i] = str("*" * len(templist[i]))
-            search_result_to_censor['title'] = " ".join(templist)
-            allresult.append(search_result_to_censor['title'])
+            if len(search_result_to_censor) > 0:
+                templist = search_result_to_censor['title'].split(" ")
+                for i in range(len(templist)):
+                    if templist[i].lower() in swearen or templist[i].lower() in sweartr:
+                        templist[i] = str("*" * len(templist[i]))
+                search_result_to_censor['title'] = " ".join(templist)
+                allresult.append(search_result_to_censor['title'])
+            
+                
 
     return allresult
 
@@ -469,7 +473,7 @@ def export_search_result(search_results, last_results):
     json.dump(last_arr, file, ensure_ascii=False)
 
 
-def mainFunction(name, shame, swearen, sweartr):
+def mainFunction(name , shame, swearen, sweartr):
     file = open("social_media.json", "w", encoding="utf-8")
     search_results = searcher(name, shame)
     result = list(set(censor(swearen, sweartr, search_results)))
