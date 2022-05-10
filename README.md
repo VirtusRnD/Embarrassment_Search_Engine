@@ -74,18 +74,17 @@ level of nudity and exposed parts.
 ## Technologies Used
 
 <br>
-
 <table>
     <tr>
-        <td><b>Front End</b></td>
-        <td style="width: 70px"><img src="https://simpleicons.org/icons/html5.svg"></td>
-        <td style="width: 70px"><img src="https://simpleicons.org/icons/css3.svg"></td>
-        <td style="width: 70px"><img src="https://simpleicons.org/icons/javascript.svg"></td>
+        <td align="center"><b>Front End</b></td>
+        <td align="center"><img src="https://simpleicons.org/icons/html5.svg"><br>&nbsp &nbsp HTML &nbsp &nbsp</td>
+        <td align="center"><img src="https://simpleicons.org/icons/css3.svg"><br>&nbsp &nbsp CSS &nbsp &nbsp</td>
+        <td align="center"><img src="https://simpleicons.org/icons/javascript.svg"><br>JavaScript</td>
     </tr>
     <tr>
-        <td><b>Back End</b></td>
-        <td><img src="https://simpleicons.org/icons/php.svg"></td>
-        <td><img src="https://simpleicons.org/icons/python.svg"></td>
-        <td><img src="https://simpleicons.org/icons/selenium.svg"></td>
+        <td align="center"><b>Back End</b></td>
+        <td align="center"><img src="https://simpleicons.org/icons/php.svg"><br>PHP</td>
+        <td align="center"><img src="https://simpleicons.org/icons/python.svg"><br>Python</td>
+        <td align="center"><img src="https://simpleicons.org/icons/selenium.svg"><br>Selenium</td>
     </tr>
 </table>
