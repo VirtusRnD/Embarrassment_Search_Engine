@@ -553,7 +553,7 @@ $output = shell_exec($command);
 
 <div style="width: 40%; margin: auto">
     <h2 style="margin-left: 42%; margin-right: 42%"> Shame Bar </h2>
-    <progress value="90" max="100" style="width: 100%; height: 50px; accent-color: #414141"></progress>
+    <progress value="3" max="100" style="width: 100%; height: 50px; accent-color: #414141"></progress>
 </div>
 
 <br>

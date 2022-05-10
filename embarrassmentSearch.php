@@ -546,24 +546,25 @@
 
 </head>
 
+<body>
 
-<form method="POST" action="display_result.php">
+    <form method="POST" action="display_result.php">
 
-    <div class="top">
-    </div>
-    <div class="image">
-        <a href="embarrassmentSearch.php"><img src="images/embarrassmentSearch.png" alt=""></a>
-    </div>
-
-
-    <div class="form">
-        <div class="autocomplete">
-            <label for="keyword"></label><input id="keyword" type="text" name="keyword" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" autofocus="">
+        <div class="top">
         </div>
-        <div style="height:30px;display:block;"></div><input type="submit" value="Search" name = "search">
-    </div>
-</form>
+        <div class="image">
+            <a href="embarrassmentSearch.php"><img src="images/embarrassmentSearch.png" alt=""></a>
+        </div>
 
-<br><br><br><br><br><br>
+
+        <div class="form">
+            <div class="autocomplete">
+                <label for="keyword"></label><input id="keyword" type="text" name="keyword" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" autofocus="">
+            </div>
+            <div style="height:30px;display:block;"></div><input type="submit" value="Search" name = "search">
+        </div>
+    </form>
+
+    <br><br><br><br><br><br>
 </body>
 </html>
