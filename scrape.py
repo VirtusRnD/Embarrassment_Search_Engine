@@ -44,6 +44,7 @@ def search_google(search_query):
 
     for num in range(len(website_links)):
         image_dict[num] = [website_links[num], image_links[num], ""]
+    browser.quit()
 
     return image_dict
 

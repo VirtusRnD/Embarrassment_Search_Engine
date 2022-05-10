@@ -6,8 +6,8 @@ if($_POST['search']){
     $query_keyword = $_POST['keyword'];
 }
 
-#$command = escapeshellcmd('python3 crawler.py '.$query_keyword);
-$output = 1;
+$command = escapeshellcmd('python3 crawler.py '.$query_keyword);
+$output = shell_exec($command);
 
 ?>
 
@@ -601,7 +601,7 @@ $output = 1;
     <h3 style="margin-left: 42%; margin-right: 42%"> Shame Bar </h3>
     <div>
         <progress id="shame_bar" value="0" max="100" style="width: 100%; height: 50px; accent-color: #414141"></progress>
-        <h3 id="shame_bar_span" style="float: right; margin-top: 0px"></h3>
+        <h3 id="shame_bar_span" style="float: right; margin-top: 0px">0%</h3>
     </div>
 
 </div>

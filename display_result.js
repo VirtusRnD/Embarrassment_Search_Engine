@@ -51,32 +51,35 @@ export function loadData(){
 
     var imageResultsDiv = document.getElementById("image_results");
 
-    for (let i = 0; i < image_list.length; i++) {
-        let imageResultDiv = document.createElement("div");
-        let linkImage = document.createElement("a");
-        let image = document.createElement("img");
-        let descDiv = document.createElement("div");
-        let descElem = document.createElement("span");
+    if(image_list.length===0){
+        imageResultsDiv.style.display = "none";
+    }else {
+        for (let i = 0; i < image_list.length; i++) {
+            let imageResultDiv = document.createElement("div");
+            let linkImage = document.createElement("a");
+            let image = document.createElement("img");
+            let descDiv = document.createElement("div");
+            let descElem = document.createElement("span");
 
-        imageResultDiv.classList.add("image_result");
-        image.classList.add("image_result_image");
-        descDiv.classList.add("image_result_desc");
+            imageResultDiv.classList.add("image_result");
+            image.classList.add("image_result_image");
+            descDiv.classList.add("image_result_desc");
 
-        descElem.innerHTML = image_list[i].description;
-        descDiv.appendChild(descElem);
+            descElem.innerHTML = image_list[i].description;
+            descDiv.appendChild(descElem);
 
-        linkImage.href = image_list[i].link;
+            linkImage.href = image_list[i].link;
 
-        image.src = image_list[i].image;
+            image.src = image_list[i].image;
 
-        linkImage.appendChild(image);
+            linkImage.appendChild(image);
 
-        imageResultDiv.appendChild(linkImage);
-        imageResultDiv.appendChild(descDiv);
+            imageResultDiv.appendChild(linkImage);
+            imageResultDiv.appendChild(descDiv);
 
-        imageResultsDiv.appendChild(imageResultDiv);
+            imageResultsDiv.appendChild(imageResultDiv);
+        }
     }
-
 
     // Links:
 
